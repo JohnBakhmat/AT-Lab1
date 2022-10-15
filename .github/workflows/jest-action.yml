@@ -1,0 +1,4 @@
+- name: Jest GitHub Action
+  uses: willcaul/jest-github-action@v1.0.2
+  with:
+    coverage-comment: true
