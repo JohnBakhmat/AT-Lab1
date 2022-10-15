@@ -3,3 +3,5 @@
 
 # Ignore built files
 /dist
+
+.DS_Store
