@@ -128,3 +128,50 @@ describe("Multiplication operation is correct", () => {
     expect(evaluate("-1.5", "2.5", "*")).toBe(-3.75);
   });
 });
+
+describe("Division operation is correct", () => {
+  it("should divide two numbers", () => {
+    expect(evaluate("1", "2", "/")).toBe(0.5);
+  });
+
+  it("should NOT divide numbers if there >2 or <2 operands", () => {
+    expect(evaluate("1", "2 3", "/")).toBe("Invalid input");
+  });
+
+  it("should NOT divide numbers if there is no operator", () => {
+    expect(evaluate("1", "2", "")).toBe("Invalid operator");
+  });
+
+  it("should NOT divide numbers if there is an invalid operator", () => {
+    expect(evaluate("1", "2", "a")).toBe("Invalid operator");
+  });
+
+  it("should NOT divide numbers if there is an invalid operand", () => {
+    expect(evaluate("1", "a", "/")).toBe("Invalid input");
+
+    expect(evaluate("a", "1", "/")).toBe("Invalid input");
+  });
+
+  it("should NOT divide numbers if there is an invalid operand and operator", () => {
+    expect(evaluate("a", "b", "c")).toBe("Invalid input");
+  });
+
+  it("should work on float numbers", () => {
+    expect(evaluate("1.5", "2.5", "/")).toBe(0.6);
+  });
+
+  it("should work on negative numbers", () => {
+    expect(evaluate("-1", "-2", "/")).toBe(0.5);
+  });
+  it("should work on negative and positive numbers", () => {
+    expect(evaluate("-1", "2", "/")).toBe(-0.5);
+  });
+
+  it("should work on float and negative numbers", () => {
+    expect(evaluate("-1.5", "2.5", "/")).toBe(-0.6);
+  });
+
+  it("should NOT divide by zero", () => {
+    expect(evaluate("1", "0", "/")).toBe("Cannot divide by zero");
+  });
+});
