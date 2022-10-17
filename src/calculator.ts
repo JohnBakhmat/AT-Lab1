@@ -6,7 +6,15 @@ const operations = {
 };
 
 export const evaluate = (a: string, b: string, operator: string) => {
-  const parsedA = parseInt(a, 10);
-  const parsedB = parseInt(b, 10);
+  if (!operatorExists(operator)) {
+    throw Error("Invalid operator");
+  }
+
+  const parsedA = parseFloat(a);
+  const parsedB = parseFloat(b);
   return operations[operator](parsedA, parsedB);
+};
+
+const operatorExists = (operator: string) => {
+  return Object.keys(operations).includes(operator);
 };
