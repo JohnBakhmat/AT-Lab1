@@ -39,7 +39,7 @@ describe("Addition operation is correct", () => {
   });
 
   it("should work on float and negative numbers", () => {
-    expect(evaluate("-1.5", "2.5", "+")).toBe(1);
+    expect(evaluate("-1.5", "2.6", "+")).toBe(1.1);
   });
 });
 
