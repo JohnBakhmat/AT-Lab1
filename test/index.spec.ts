@@ -6,24 +6,24 @@ describe("Addition operation is correct", () => {
   });
 
   it("should NOT add numbers if there >2 or <2 operands", () => {
-    expect(evaluate("1", "2 3", "+")).toBe("Invalid input");
+    expect(() => evaluate("1", "2 3", "+")).toThrow("Invalid input");
   });
 
   it("should NOT add numbers if there is no operator", () => {
-    expect(evaluate("1", "2", "")).toBe("Invalid operator");
+    expect(() => evaluate("1", "2", "")).toThrow("Invalid operator");
   });
 
   it("should NOT add numbers if there is an invalid operator", () => {
-    expect(evaluate("1", "2", "a")).toBe("Invalid operator");
+    expect(() => evaluate("1", "2", "a")).toThrow("Invalid operator");
   });
 
   it("should NOT add numbers if there is an invalid operand", () => {
-    expect(evaluate("1", "a", "+")).toBe("Invalid input");
-    expect(evaluate("a", "1", "+")).toBe("Invalid input");
+    expect(() => evaluate("1", "a", "+")).toThrow("Invalid input");
+    expect(() => evaluate("a", "1", "+")).toThrow("Invalid input");
   });
 
   it("should NOT add numbers if there is an invalid operand and operator", () => {
-    expect(evaluate("a", "b", "c")).toBe("Invalid input");
+    expect(() => evaluate("a", "b", "c")).toThrow("Invalid input");
   });
 
   it("should work on float numbers", () => {
@@ -49,24 +49,24 @@ describe("Subtraction operation is correct", () => {
   });
 
   it("should NOT subtract numbers if there >2 or <2 operands", () => {
-    expect(evaluate("1", "2 3", "-")).toBe("Invalid input");
+    expect(() => evaluate("1", "2 3", "-")).toThrow("Invalid input");
   });
 
   it("should NOT subtract numbers if there is no operator", () => {
-    expect(evaluate("1", "2", "")).toBe("Invalid operator");
+    expect(() => evaluate("1", "2", "")).toThrow("Invalid operator");
   });
 
   it("should NOT subtract numbers if there is an invalid operator", () => {
-    expect(evaluate("1", "2", "a")).toBe("Invalid operator");
+    expect(() => evaluate("1", "2", "a")).toThrow("Invalid operator");
   });
 
   it("should NOT subtract numbers if there is an invalid operand", () => {
-    expect(evaluate("1", "a", "-")).toBe("Invalid input");
-    expect(evaluate("a", "1", "-")).toBe("Invalid input");
+    expect(() => evaluate("1", "a", "-")).toThrow("Invalid input");
+    expect(() => evaluate("a", "1", "-")).toThrow("Invalid input");
   });
 
   it("should NOT subtract numbers if there is an invalid operand and operator", () => {
-    expect(evaluate("a", "b", "c")).toBe("Invalid input");
+    expect(() => evaluate("a", "b", "c")).toThrow("Invalid input");
   });
 
   it("should work on float numbers", () => {
@@ -92,24 +92,24 @@ describe("Multiplication operation is correct", () => {
   });
 
   it("should NOT multiply numbers if there >2 or <2 operands", () => {
-    expect(evaluate("1", "2 3", "*")).toBe("Invalid input");
+    expect(() => evaluate("1", "2 3", "*")).toThrow("Invalid input");
   });
 
   it("should NOT multiply numbers if there is no operator", () => {
-    expect(evaluate("1", "2", "")).toBe("Invalid operator");
+    expect(() => evaluate("1", "2", "")).toThrow("Invalid operator");
   });
 
   it("should NOT multiply numbers if there is an invalid operator", () => {
-    expect(evaluate("1", "2", "a")).toBe("Invalid operator");
+    expect(() => evaluate("1", "2", "a")).toThrow("Invalid operator");
   });
 
   it("should NOT multiply numbers if there is an invalid operand", () => {
-    expect(evaluate("1", "a", "*")).toBe("Invalid input");
-    expect(evaluate("a", "1", "*")).toBe("Invalid input");
+    expect(() => evaluate("1", "a", "*")).toThrow("Invalid input");
+    expect(() => evaluate("a", "1", "*")).toThrow("Invalid input");
   });
 
   it("should NOT multiply numbers if there is an invalid operand and operator", () => {
-    expect(evaluate("a", "b", "c")).toBe("Invalid input");
+    expect(() => evaluate("a", "b", "c")).toThrow("Invalid input");
   });
 
   it("should work on float numbers", () => {
@@ -135,25 +135,25 @@ describe("Division operation is correct", () => {
   });
 
   it("should NOT divide numbers if there >2 or <2 operands", () => {
-    expect(evaluate("1", "2 3", "/")).toBe("Invalid input");
+    expect(() => evaluate("1", "2 3", "/")).toThrow("Invalid input");
   });
 
   it("should NOT divide numbers if there is no operator", () => {
-    expect(evaluate("1", "2", "")).toBe("Invalid operator");
+    expect(() => evaluate("1", "2", "")).toThrow("Invalid operator");
   });
 
   it("should NOT divide numbers if there is an invalid operator", () => {
-    expect(evaluate("1", "2", "a")).toBe("Invalid operator");
+    expect(() => evaluate("1", "2", "a")).toThrow("Invalid operator");
   });
 
   it("should NOT divide numbers if there is an invalid operand", () => {
-    expect(evaluate("1", "a", "/")).toBe("Invalid input");
+    expect(() => evaluate("1", "a", "/")).toThrow("Invalid input");
 
-    expect(evaluate("a", "1", "/")).toBe("Invalid input");
+    expect(() => evaluate("a", "1", "/")).toThrow("Invalid input");
   });
 
   it("should NOT divide numbers if there is an invalid operand and operator", () => {
-    expect(evaluate("a", "b", "c")).toBe("Invalid input");
+    expect(() => evaluate("a", "b", "c")).toThrow("Invalid input");
   });
 
   it("should work on float numbers", () => {
@@ -172,6 +172,6 @@ describe("Division operation is correct", () => {
   });
 
   it("should NOT divide by zero", () => {
-    expect(evaluate("1", "0", "/")).toBe("Cannot divide by zero");
+    expect(() => evaluate("1", "0", "/")).toThrow("Cannot divide by zero");
   });
 });
